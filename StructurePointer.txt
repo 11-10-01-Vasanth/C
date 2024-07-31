@@ -1,0 +1,124 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct student
+{	
+	int age;
+	char name[30];
+};
+	
+int main()
+{
+	struct student s1,s2;
+	printf("Enter age : ");
+	scanf("%d",&s1.age);
+	printf("Age is : %d\n",s1.age);
+	printf("Enter name : ");
+	scanf("%s",&s2.name);
+	printf("Name is : %s",s2.name);
+}
+ -------------------------------------------
+
+#include<stdio.h>
+#include<stdlib.h>
+
+struct student
+{	
+	int age;
+	char name[30];
+}s1,s2;
+	
+int main()
+{
+	printf("Enter age : ");
+	scanf("%d",&s1.age);
+	printf("Enter name : ");
+	scanf("%s",&s2.name);
+	printf("Age is : %d\n",s1.age);
+	printf("Name is : %s",s2.name);
+}
+
+-----------------------------------------------
+
+#include<stdio.h>
+#include<stdlib.h>
+
+struct student
+{	
+	int age;
+	char name[30];
+};
+	
+int main()
+{
+	struct student s[3];
+	printf("Enter age : ");
+	scanf("%d",&s[1].age);
+	printf("Enter name : ");
+	scanf("%s",&s[2].name);
+	printf("Age is : %d\n",s[1].age);
+	printf("Name is : %s",s[2].name);
+}
+
+------------------------------------------------
+
+	#include<stdio.h>
+	#include<stdlib.h>
+	
+	struct student
+	{	
+		int age;
+		char name[30];
+	};
+		
+	int main()
+	{
+		struct student s[3];
+		int i;
+		for(i=0;i<3;i++)
+		{
+			printf("Enter Name : ");
+			scanf("%s",&s[i].name);
+			printf("Enter Age : ");
+			scanf("%d",&s[i].age);
+		}
+		for(i=0;i<3;i++)
+		{
+			printf("Name : %s \t Age : %d \n",s[i].name,s[i].age);
+		}
+	}
+
+
+----------------------------------------------------
+
+#include<stdio.h>
+#include<stdlib.h>
+
+struct student{
+		int age;
+		char name[30];
+	};
+	
+int main()
+{
+	struct student *s;	
+	int n;
+	printf("Enter number : ");
+	scanf("%d",&n);
+	s=(struct student *) calloc(n,sizeof(struct student));
+		 
+	int i;
+	for(i=0;i<n;i++)
+	{
+		printf("Enter age : ");
+		scanf("%d",&(s+i)->age);
+		printf("Enter name : ");
+		scanf("%s",(s+i)->name);
+	}
+	
+	for(i=0;i<n;i++)
+	{
+		printf(" Name \t %s \n ",(s+i)->name);
+		printf(" Age \t %d \n",(s+i)->age);
+	}
+}

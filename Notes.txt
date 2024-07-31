@@ -1,0 +1,283 @@
+Structure of C prgm
+
+	#include<stdio.h>		Header Section	
+	int a=10;			Global declaration section
+	int main()			Main Function
+	{			
+		
+		int b=10;		Local declaration section
+		printf("Hello");	statements
+		.
+		.
+		.
+	}				End main function
+
+
+stdio - standard input output
+
+To Compile ->     gcc flename.c -o outputfilename(syntax)   -   gcc Gnome C Compiler
+To execute -> 	./outputfilename
+
+
+Escape sequences :
+	\n - New line
+	\t - Tab
+	\\ - \
+	\" - "
+	\r - Carriage return,Overwrite 
+
+String, Text   ->  char
+Integer  ->   short, int, long
+Real    ->  float, double
+Depending upon the type of data mameory is allocated
+
+%f - 3.140000
+%.2f - 3.14
+
+%10d  -  align 
+
+&x  -  address of x    ( scanf("%d",&x) ) 
+
+
+
+OPERATORS:
+
+	Arithematic     + - * / %    --> Binary Opearators
+	
+	Logical		&&  ||  !
+	
+	Relational		     --> Returns Boolen values(0 or 1 , True or False)
+			==      Equalto
+			!=		Notequalto
+			<,>		lesser/greater than
+			<=,>=	less/greater than or equal to
+	
+	Conditional	cond1 ? true : false 	a>b?a:b;      -->  Ternary	
+
+	Inc/Dec         a++,a--,++a,--a,a+=1  -->Unary      
+		 	
+	Bitwise		& , | , ^ , >> , <<   -->  Calculate by using binary values
+
+
+FLOWCONTROL STATEMENTS :
+
+	Decisional/Conditional
+		if, 
+		ifelse, 
+		switch
+
+	Looping(For iteration purpose) -->  Repeating a task
+		while, 
+			while(condition)
+			{
+				Statement1;
+				.
+				.
+			}
+		
+		do.. while,   -->  if condition is true/false atleast the statement will be executed
+			do
+			{
+				statement1;
+				.
+				.	
+			}while(Condition);
+		
+		for
+			for(initialization;condition;inc/dec)
+			{
+				statement;
+			}
+	
+	break();
+
+	continue();
+
+
+Arrays
+	Grouping of variables of same type under one name
+	datatype var_name[size];
+	datatype var_name[] = {2,4,1,2};
+	datatype var_name[rows][cols] = { {},{} };
+	
+	Using Variable name of an array returns the address of first element(0 index)
+	int x[] = { 1,2,3,4,5 };
+	printf("%u",x);    // address  
+	printf("%d",*x);	// 0 index
+
+	String is also type of an array
+
+#include<stdio.h>
+int main()
+{
+	char ch[] = {'H','e','l','l','o'};
+	char str[] = "hello";
+	printf("%s",ch);
+	printf("\n");
+	int n;
+	for(n=0;n<5;n++)
+	{
+		printf("%c ",str[n]);
+	}
+	printf("\n");
+}
+
+
+Functions : (DRY - Do Not repeat Yourself)
+
+	returntype funcname(arg,...)
+	{
+		statements;
+	}
+
+#include<stdio.h>
+int add(int a,int b)			// called function
+{
+	int sum=a+b;
+	return sum;
+}
+int main()
+{
+	int res = add(5,5);		// caller function
+	printf("%d ",res);
+}
+	
+
+
+Recursive function :
+
+	Function calling in by itself
+
+#include<stdio.h>
+int fact(int n)
+{
+	if(n==1)
+	{
+		return 1;
+	}
+	else
+	{
+		return n*fact(n-1);
+	}
+}
+int main()
+{
+	int res=fact(5);
+	printf("%d",res);	
+}
+
+
+Static variables :
+	
+	Has Common memory
+
+int main();
+{
+	static int x=0;
+	printf("Hello");
+	x++;
+	if(x<=5)
+	{
+		main();
+	}
+}
+
+
+
+Pointer :
+	
+	Pointers are variables which stores the address of another variable
+	Pointers helps dynamic memory allocation while execute/running the program
+
+datatype *var_name;       //   * --> Indirection operator
+
+int x=10;
+int *ptr;
+ptr = &x;	
+
+
+Dynamic Memory Allocation :
+
+include #include<stdlib.h>   
+
+	malloc  --> memory allocation
+
+sizeof(datatype) * size -->  returns memory value
+
+	calloc  --> Contigous memory allocation
+
+size, sizeof(datatype)	
+
+	ptr = calloc(4,sizeof(int));
+
+free(var_name);  --> To freeup the memory
+
+
+
+Structure:  (User/Derived defined datatype)
+
+	Grouping of variables of different type
+
+struct struct_name{
+		var1;
+		var2;
+		.
+		.
+		.
+		var n;
+	}s1,s2;   
+
+struct structname obj_name;   --> To access struct using oblect
+
+obj_name.var_name;          -->  To access the variable 
+
+
+File :
+	
+	syntax :
+		
+	#include<stdio.h>
+	int main()
+	{
+		FILE *fptr;
+		fptr=fopen("file.txt","w");   // fopen(file_name , mode)
+	}
+
+Mode;
+	a - append
+	w - write
+	r - read
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
